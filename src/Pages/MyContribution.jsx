@@ -73,4 +73,4 @@ const Contribution = () => {
     );
 };
 
-export default Contributio;
+export default Contribution;
