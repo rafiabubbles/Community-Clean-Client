@@ -170,4 +170,4 @@ const Register = () => {
     );
 };
 
-export default Registe;
+export default Register;
