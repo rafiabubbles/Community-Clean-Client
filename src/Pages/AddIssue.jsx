@@ -108,4 +108,4 @@ const AddIssue = () => {
     );
 };
 
-export default AddIssue;
+export default AddIssu;
