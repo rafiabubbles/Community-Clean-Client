@@ -177,4 +177,4 @@ const IssueDetail = () => {
     );
 };
 
-export default IssueDetail;
+export default IssueDetai;
