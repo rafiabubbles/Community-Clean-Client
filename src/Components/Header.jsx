@@ -34,8 +34,19 @@ const Header = () => {
                             <>
                                 <NavLink to="/" className="hover:text-cyan-400">Home</NavLink>
                                 <NavLink to="/issues" className="hover:text-cyan-400">Issues</NavLink>
-                                <NavLink to="/login" className="hover:text-cyan-400">Login</NavLink>
-                                <NavLink to="/register" className="hover:text-cyan-400">Register</NavLink>
+                                <NavLink
+                                    to="/login"
+                                    className="hover:text-cyan-400 border border-sky-400 px-3 py-1 rounded transition"
+                                >
+                                    Login
+                                </NavLink>
+
+                                <NavLink
+                                    to="/register"
+                                    className="hover:text-cyan-400 border border-sky-400 px-3 py-1 rounded transition"
+                                >
+                                    Register
+                                </NavLink>
                             </>
                         ) : (
                             <>

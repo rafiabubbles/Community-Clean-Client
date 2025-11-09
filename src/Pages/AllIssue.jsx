@@ -27,8 +27,8 @@ const AllIssues = () => {
 
     return (
         // *** The overflow-x-hidden class is already here, which prevents the horizontal scrollbar. ***
-        <div className="max-w-7xl mx-auto px-4 md:px-10 overflow-x-hidden">
-            <h2 className="text-3xl font-bold mb-6 text-center">All Issues</h2>
+        <div className="max-w-7xl mx-auto px-4 md:px-10 overflow-x-hidden pt-20 pb-12">
+            <h2 className="text-3xl font-bold mb-6 text-center pb-8">All Issues</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {issues.map((issue) => (
                     <div
@@ -49,7 +49,7 @@ const AllIssues = () => {
                             <p className="font-semibold mt-1">Budget: ${issue.amount}</p>
                             <Link
                                 to={`/issue/${issue._id}`}
-                                className="mt-auto btn btn-primary w-full text-center"
+                                className="mt-auto btn btn-primary w-full text-center bg-gradient-to-r from-[#574bc7] to-[#8eb4fa] text-white font-extrabold py-3 px-6 rounded-xl shadow-[0_0_15px_rgba(138,43,226,0.6)] hover:shadow-[0_0_20px_rgba(255,0,255,0.8)] transition duration-300 ease-in-out"
                             >
                                 See Details
                             </Link>
