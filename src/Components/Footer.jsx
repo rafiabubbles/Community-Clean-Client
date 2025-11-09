@@ -7,16 +7,16 @@ const Footer = () => {
     return (
         <footer className="bg-[#001931] text-white">
             {/* Top Section */}
-            <div className="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="container mx-auto px-4 sm:px-6 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-8 text-center sm:text-left">
                 {/* Logo + Description */}
-                <div>
-                    <Link to="/" className="flex items-center">
-                        <img src={logo} alt="Clean Community" className="h-12" />
-                        <span className="text-sky-400 text-xl font-semibold ml-2">
+                <div className="flex flex-col items-center sm:items-start">
+                    <Link to="/" className="flex items-center justify-center sm:justify-start">
+                        <img src={logo} alt="Clean Community" className="h-12 w-auto" />
+                        <span className="text-sky-400 text-lg sm:text-xl font-semibold ml-2">
                             Cleaning & Service
                         </span>
                     </Link>
-                    <p className="text-gray-400 mt-3 text-sm leading-relaxed">
+                    <p className="text-gray-400 mt-4 text-sm leading-relaxed max-w-xs sm:max-w-sm">
                         A community-driven platform to report and resolve local cleanliness
                         issues. Join hands to make your surroundings clean and green 🌿
                     </p>
@@ -24,7 +24,7 @@ const Footer = () => {
 
                 {/* Useful Links */}
                 <div>
-                    <h6 className="text-lg font-semibold mb-3 text-cyan-400">
+                    <h6 className="text-lg font-semibold mb-4 text-cyan-400">
                         Useful Links
                     </h6>
                     <ul className="space-y-2 text-gray-300">
@@ -44,8 +44,6 @@ const Footer = () => {
                                 All Issues
                             </Link>
                         </li>
-
-
                         <li>
                             <Link
                                 to="/contact"
@@ -59,10 +57,10 @@ const Footer = () => {
 
                 {/* Social Media */}
                 <div>
-                    <h6 className="text-lg font-semibold mb-3 text-cyan-400">
+                    <h6 className="text-lg font-semibold mb-4 text-cyan-400">
                         Follow Us
                     </h6>
-                    <div className="flex gap-4">
+                    <div className="flex justify-center sm:justify-start gap-5">
                         {/* Facebook */}
                         <a
                             href="https://facebook.com"
@@ -81,7 +79,6 @@ const Footer = () => {
                             </svg>
                         </a>
 
-                        {/* Twitter */}
                         {/* X (Twitter) */}
                         <a
                             href="https://twitter.com"
@@ -100,7 +97,6 @@ const Footer = () => {
                                 <path d="M18.244 2H21.6l-7.6 8.7L22 22h-6.967l-5.455-6.7L3.6 22H.244l8.108-9.274L2 2h7.033l4.977 6.095L18.244 2zm-2.422 18h1.855L7.4 4h-1.9l10.322 16z" />
                             </svg>
                         </a>
-
 
                         {/* YouTube */}
                         <a
@@ -125,7 +121,7 @@ const Footer = () => {
 
             {/* Bottom Section */}
             <div className="bg-[#001622] text-center py-4 border-t border-gray-800">
-                <p className="text-sm text-gray-400">
+                <p className="text-xs sm:text-sm text-gray-400 px-3">
                     © {new Date().getFullYear()} CleanCommunity — All rights reserved | Designed by{" "}
                     <span className="text-cyan-400 font-semibold">Rafia</span>
                 </p>
