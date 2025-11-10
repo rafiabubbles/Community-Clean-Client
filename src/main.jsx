@@ -5,15 +5,15 @@ import { RouterProvider } from 'react-router';
 import { ToastContainer } from 'react-toastify';
 import "./index.css";
 import AuthProvider from "./provider/AuthProvider";
-import { DarkModeProvider } from "./context/DarkModeContext.jsx";
+import { ThemeProvider } from "./context/ThemeContext";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <DarkModeProvider>
+    <ThemeProvider>
       <AuthProvider>
         <RouterProvider router={router} />
         <ToastContainer />
       </AuthProvider>
-    </DarkModeProvider>
+    </ThemeProvider>
   </StrictMode>
 );

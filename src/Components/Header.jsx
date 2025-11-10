@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import logo from "../assets/logo.png";
+import { ThemeContext } from "../context/ThemeContext";
+import { Sun, Moon } from "lucide-react";
+
 
 const Header = () => {
     const { user, logout } = useAuth();
@@ -15,7 +18,7 @@ const Header = () => {
         setMenuOpen(false);
         setProfileOpen(false);
     };
-
+    const { theme, toggleTheme } = useContext(ThemeContext);
     return (
         <nav className="bg-[#001931] text-white shadow-md sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,6 +30,14 @@ const Header = () => {
                             Cleaning & Service
                         </span>
                     </Link>
+                    {/* themebutton  */}
+                    <button
+                        onClick={toggleTheme}
+                        className="btn btn-ghost rounded-full"
+                        title="Toggle theme"
+                    >
+                        {theme === "light" ? <Moon /> : <Sun />}
+                    </button>
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center space-x-6">
