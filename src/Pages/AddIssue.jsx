@@ -6,8 +6,10 @@ import axios from "axios";
 import { useAuth } from "../hooks/useAuth";
 import Loader from "../Components/Loader";
 
+
 const AddIssue = () => {
     const { user } = useAuth();
+
     const { register, handleSubmit, reset } = useForm();
     const [loading, setLoading] = useState(false);
 
@@ -22,6 +24,8 @@ const AddIssue = () => {
             await axios.post("http://localhost:5000/api/add-issue", data);
             toast.success("Issue added successfully!");
             reset();
+
+
         } catch (error) {
             console.error(error);
             toast.error("Failed to add issue!");

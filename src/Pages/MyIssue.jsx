@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useAuth } from "../hooks/useAuth";
+import Loader from "../Components/Loader";
 
 const MyIssues = () => {
-    const { user } = useAuth(); // get logged-in user
+    const { user } = useAuth(); // logged-in user
     const [issues, setIssues] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedIssue, setSelectedIssue] = useState(null);
@@ -19,13 +20,30 @@ const MyIssues = () => {
         status: "ongoing",
     });
 
+    // fetch logged-in user's issues
+    const fetchMyIssues = async () => {
+        setLoading(true);
+        try {
+            const res = await axios.get("http://localhost:5000/api/issues", {
+                params: { email: user.email }, // only this user's issues
+            });
+            setIssues(res.data);
+        } catch (err) {
+            toast.error("Failed to load your issues!");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     useEffect(() => {
         const fetchMyIssues = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/issues", {
+                const res = await axios.get("http://localhost:5000/api/add-issue", {
                     params: { email: user.email }, // fetch only user's issues
                 });
-                setIssues(res.data);
+                // filter manually on frontend if backend doesn't support email param
+                const myIssues = res.data.filter(issue => issue.email === user.email);
+                setIssues(myIssues);
             } catch (err) {
                 toast.error("Failed to load your issues!");
             } finally {
@@ -35,6 +53,7 @@ const MyIssues = () => {
         fetchMyIssues();
     }, [user.email]);
 
+    // open update modal
     const openUpdateModal = (issue) => {
         setSelectedIssue(issue);
         setUpdateData({
@@ -52,37 +71,43 @@ const MyIssues = () => {
         setUpdateData({ ...updateData, [name]: value });
     };
 
+    // submit update
     const handleUpdateSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/issues/${selectedIssue._id}`, updateData);
-            toast.success("Issue updated successfully!");
-            setIssues((prev) =>
-                prev.map((i) => (i._id === selectedIssue._id ? { ...i, ...updateData } : i))
+            await axios.put(
+                `http://localhost:5000/api/issues/${selectedIssue._id}`,
+                updateData
             );
+            toast.success("Issue updated successfully!");
+            // refresh issues
+            fetchMyIssues();
             setShowUpdateModal(false);
         } catch (err) {
             toast.error("Failed to update issue!");
         }
     };
 
+    // open delete modal
     const openDeleteModal = (issue) => {
         setSelectedIssue(issue);
         setShowDeleteModal(true);
     };
 
+    // delete issue
     const handleDelete = async () => {
         try {
             await axios.delete(`http://localhost:5000/api/issues/${selectedIssue._id}`);
-            setIssues((prev) => prev.filter((i) => i._id !== selectedIssue._id));
             toast.success("Issue deleted successfully!");
+            // refresh issues
+            fetchMyIssues();
             setShowDeleteModal(false);
         } catch (err) {
             toast.error("Failed to delete issue!");
         }
     };
 
-    if (loading) return <p className="text-center mt-10">Loading...</p>;
+    if (loading) return <Loader />;
 
     return (
         <div className="max-w-6xl mx-auto py-10 px-4">
