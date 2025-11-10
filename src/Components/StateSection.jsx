@@ -25,8 +25,8 @@ const StatsCounter = ({ stats }) => {
     useEffect(() => {
         if (!visible) return;
 
-        const duration = 1500; // animation duration in ms
-        const frameRate = 20; // ms per frame
+        const duration = 1500;
+        const frameRate = 20;
         const totalFrames = Math.round(duration / frameRate);
 
         const animateCount = (key, endValue) => {
@@ -50,7 +50,7 @@ const StatsCounter = ({ stats }) => {
         animateCount("pending", stats.pending);
     }, [visible, stats]);
 
-    // Format number with at least 2 digits
+
     const formatNumber = (num) => String(num).padStart(2, "0");
 
     return (

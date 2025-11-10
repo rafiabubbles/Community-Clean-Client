@@ -1,8 +1,8 @@
-// src/components/RecentComplaints.jsx
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Loader from "../Components/Loader"; // optional loader if you want
+import Loader from "../Components/Loader";
 
 const RecentComplaints = () => {
     const [issues, setIssues] = useState([]);
@@ -12,9 +12,6 @@ const RecentComplaints = () => {
         const fetchIssues = async () => {
             try {
                 const res = await axios.get("https://community-clean-server-rep.vercel.app/api/add-issue");
-
-                // 💡 The Edit: Take only the first 6 elements
-                // Assuming the API returns Newest Issues FIRST (as suggested by AllIssues behavior)
                 const recentSix = res.data.slice(0, 6);
 
                 setIssues(recentSix);
