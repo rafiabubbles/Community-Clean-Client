@@ -7,7 +7,7 @@ A full-stack **MERN (MongoDB, Express.js, React.js, Node.js)** web application t
 
 ## 🌐 Live Site
 
-[View Live Website](https://your-client-vercel-url.com)
+[[View Live Website](https://your-client-vercel-url.com)](https://community-clean-client.netlify.app/)
 
 ---
 
