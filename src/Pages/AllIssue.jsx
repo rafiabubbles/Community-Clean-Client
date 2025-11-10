@@ -16,7 +16,7 @@ const AllIssues = () => {
     useEffect(() => {
         const fetchIssues = async () => {
             try {
-                // Using /api/add-issue endpoint to fetch all issues, which is correct based on our previous discussion
+
                 const res = await axios.get("https://community-clean-server-rep.vercel.app/api/add-issue");
                 setIssues(res.data);
             } catch (err) {
@@ -31,7 +31,7 @@ const AllIssues = () => {
     if (loading) return <Loader />;
 
     return (
-        // *** The overflow-x-hidden class is already here, which prevents the horizontal scrollbar. ***
+
         <div className="max-w-7xl mx-auto px-4 md:px-10 overflow-x-hidden pt-20 pb-12">
             <h2 className="text-3xl font-bold mb-6 text-center pb-8">All Issues</h2>
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">

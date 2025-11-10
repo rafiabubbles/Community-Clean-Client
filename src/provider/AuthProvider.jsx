@@ -77,8 +77,8 @@ const AuthProvider = ({ children }) => {
         user,
         loading,
         createUser,
-        login, // পরিবর্তিত login ফাংশন
-        googleLogin, // পরিবর্তিত googleLogin ফাংশন
+        login,
+        googleLogin,
         logout,
         updateProfile
     };

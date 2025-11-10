@@ -1,4 +1,4 @@
-// src/pages/Home.jsx
+
 import React, { useEffect, useState } from "react";
 import BannerSlider from "../Components/BannerSlider";
 import CategoryCard from "../Components/CategoryCard";
@@ -13,9 +13,9 @@ import Welcome from "../assets/welcome.json";
 const Home = () => {
     const [recentIssues, setRecentIssues] = useState([]);
     const [stats, setStats] = useState({
-        totalUsers: 1507, // default number
-        resolved: 750,    // default number
-        pending: 320,     // default number
+        totalUsers: 1507,
+        resolved: 750,
+        pending: 320,
     });
 
     useEffect(() => {

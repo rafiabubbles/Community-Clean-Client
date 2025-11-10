@@ -46,7 +46,7 @@ const IssueDetail = () => {
             const res = await axios.post("https://community-clean-server-rep.vercel.app/api/contributions", data);
             toast.success("Contribution submitted!");
             setShowModal(false);
-            setContributors(prev => [...prev, data]); // update UI
+            setContributors(prev => [...prev, data]);
             setContribution({ amount: "", name: "", phone: "", address: "", info: "" });
         } catch (err) {
             console.error(err);

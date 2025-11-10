@@ -1,4 +1,4 @@
-// MyIssues.jsx
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -41,7 +41,7 @@ const MyIssues = () => {
                 const res = await axios.get("https://community-clean-server-rep.vercel.app/api/add-issue", {
                     params: { email: user.email }, // fetch only user's issues
                 });
-                // filter manually on frontend if backend doesn't support email param
+
                 const myIssues = res.data.filter(issue => issue.email === user.email);
                 setIssues(myIssues);
             } catch (err) {

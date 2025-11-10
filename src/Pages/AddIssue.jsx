@@ -1,4 +1,4 @@
-// src/Pages/AddIssue.jsx
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -91,7 +91,7 @@ const AddIssue = () => {
                     required
                 />
 
-                {/* Email (read-only) */}
+                {/* Email  */}
                 <input
                     type="email"
                     value={user?.email || ""}
