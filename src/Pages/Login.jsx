@@ -9,13 +9,13 @@ const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [loading, setLoading] = useState(false);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
+
         const result = await login(email, password);
-        setLoading(false);
+
 
         if (result.success) {
             Swal.fire({
@@ -35,9 +35,9 @@ const Login = () => {
     };
 
     const handleGoogleLogin = async () => {
-        setLoading(true);
+
         const result = await googleLogin();
-        setLoading(false);
+
 
         if (result.success) {
             Swal.fire({
@@ -95,16 +95,16 @@ const Login = () => {
 
                 <button
                     type="submit"
-                    disabled={loading}
+
                     className="w-full bg-cyan-500 py-3 rounded-xl font-semibold text-white shadow-md hover:bg-cyan-600 transition"
                 >
-                    {loading ? "Logging in..." : "Login"}
+                    Login
                 </button>
 
                 <button
                     type="button"
                     onClick={handleGoogleLogin}
-                    disabled={loading}
+
                     className="w-full flex justify-center items-center gap-2 border border-cyan-500 text-cyan-500 py-3 rounded-xl hover:bg-cyan-500 hover:text-white transition"
                 >
                     <span>Login with Google</span>

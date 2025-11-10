@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Loader from "./Loader"; // optional loader if you want
+import Loader from "../Components/Loader"; // optional loader if you want
 
 const RecentComplaints = () => {
     const [issues, setIssues] = useState([]);

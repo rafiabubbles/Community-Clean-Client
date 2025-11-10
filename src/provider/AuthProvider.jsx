@@ -1,4 +1,5 @@
 // src/provider/AuthProvider.jsx
+
 import React, { createContext, useEffect, useState } from "react";
 import {
     getAuth,
@@ -20,23 +21,41 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // Register new user
+    // Register new user (এই ফাংশনে আপাতত পরিবর্তন না করলেও চলবে, কারণ Login.jsx এটি ব্যবহার করছে না)
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     };
 
-    // Login existing user
-    const login = (email, password) => {
+    // ⭐ পরিবর্তন #১: Login existing user
+    const login = async (email, password) => { // async যোগ করা হলো
         setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password);
+        try {
+            // লগইন সফল হলে
+            await signInWithEmailAndPassword(auth, email, password);
+            return { success: true }; // 👈 এই ফরম্যাটে রিটার্ন করবে
+        } catch (error) {
+            // লগইন ব্যর্থ হলে
+            setLoading(false);
+            // Friendly error message 
+            let message = error.message.replace("Firebase: Error (", "").replace(").", "");
+            return { success: false, message: message }; // 👈 এই ফরম্যাটে রিটার্ন করবে
+        }
     };
 
-    // Google login
+    // ⭐ পরিবর্তন #২: Google login
     const googleProvider = new GoogleAuthProvider();
-    const googleLogin = () => {
+    const googleLogin = async () => { // async যোগ করা হলো
         setLoading(true);
-        return signInWithPopup(auth, googleProvider);
+        try {
+            // লগইন সফল হলে
+            await signInWithPopup(auth, googleProvider);
+            return { success: true }; // 👈 এই ফরম্যাটে রিটার্ন করবে
+        } catch (error) {
+            // লগইন ব্যর্থ হলে
+            setLoading(false);
+            return { success: false, message: error.message }; // 👈 এই ফরম্যাটে রিটার্ন করবে
+        }
     };
 
     // Logout
@@ -58,8 +77,8 @@ const AuthProvider = ({ children }) => {
         user,
         loading,
         createUser,
-        login,
-        googleLogin,
+        login, // পরিবর্তিত login ফাংশন
+        googleLogin, // পরিবর্তিত googleLogin ফাংশন
         logout,
         updateProfile
     };
