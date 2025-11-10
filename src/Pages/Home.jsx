@@ -18,7 +18,6 @@ const Home = () => {
     const [welcomeData, setWelcomeData] = useState(null);
 
     useEffect(() => {
-        // Fetch recent issues
         const fetchIssues = async () => {
             try {
                 const res = await axios.get(
@@ -32,7 +31,6 @@ const Home = () => {
             }
         };
 
-        // Fetch stats
         const fetchStats = async () => {
             try {
                 const res = await axios.get(
@@ -48,7 +46,7 @@ const Home = () => {
         // Fetch welcome.json from public folder
         const fetchWelcomeJSON = async () => {
             try {
-                const res = await fetch("/welcome.json"); // file now in public folder
+                const res = await fetch("/welcome.json"); // file in public folder
                 const data = await res.json();
                 setWelcomeData(data);
             } catch (err) {
@@ -67,6 +65,8 @@ const Home = () => {
                 <h1 className="text-3xl font-bold mb-6 text-sky-600">
                     Welcome to Our Portal
                 </h1>
+
+                {/* ✅ Fixed here */}
                 {welcomeData && (
                     <Lottie animationData={welcomeData} loop={true} className="w-80 h-80" />
                 )}
@@ -91,9 +91,11 @@ const Home = () => {
             </section>
 
             {/* Volunteer Call-to-Action */}
-            <section className="bg-linear-to-r from-cyan-500 to-blue-500 py-16">
+            <section className=" bg-linear-to-r from-cyan-500 to-blue-500 py-16">
                 <div className="max-w-7xl mx-auto px-4 md:px-10 text-center text-white">
-                    <h2 className="text-4xl font-extrabold mb-4">Join Our Clean Drive!</h2>
+                    <h2 className="text-4xl font-extrabold mb-4">
+                        Join Our Clean Drive!
+                    </h2>
                     <p className="mb-6 text-lg">
                         Be a part of the community effort to keep our surroundings clean and
                         sustainable.

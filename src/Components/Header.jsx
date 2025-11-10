@@ -114,7 +114,7 @@ const Header = () => {
                     {!user ? (
                         <>
                             <Link to="/" onClick={closeAll} className="block px-3 py-2 rounded-md hover:bg-gray-100 hover:text-black">Home</Link>
-                            <Link to="/issues" onClick={closeAll} className="block px-3 py-2 rounded-md hover:bg-gray-100 hover:text-black">Issues</Link>
+                            <Link to="/all-issues" onClick={closeAll} className="block px-3 py-2 rounded-md hover:bg-gray-100 hover:text-black">Issues</Link>
                             <Link to="/login" onClick={closeAll} className="block px-3 py-2 rounded-md hover:bg-gray-100 hover:text-black">Login</Link>
                             <Link to="/register" onClick={closeAll} className="block px-3 py-2 rounded-md hover:bg-gray-100 hover:text-black">Register</Link>
                         </>
