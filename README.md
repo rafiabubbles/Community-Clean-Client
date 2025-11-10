@@ -1,16 +1,114 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Community Cleanliness & Issue Reporting Portal
 
-Currently, two official plugins are available:
+A full-stack **MERN (MongoDB, Express.js, React.js, Node.js)** web application that allows users to report, track, and contribute to resolving community cleanliness and public space issues in their local area. Users can post issues, contribute to cleanup drives, view their issue history, and interact with the community in a modern, secure environment.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🌐 Live Site
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+[View Live Website](https://your-client-vercel-url.com)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+- **Frontend:** React.js, Tailwind CSS, DaisyUI, React Router, React Hook Form
+- **Backend:** Node.js, Express.js, MongoDB, MongoDB Client
+- **Authentication:** Firebase Email & Google login
+- **Other Libraries:** Axios, React Toastify, jsPDF + AutoTable (PDF reports)
+
+---
+
+## 💡 Features
+
+1. **User Authentication**
+   - Email/password login and registration
+   - Google login
+   - Private routes for logged-in users
+
+2. **Issue Management**
+   - Add new issues with title, description, category, location, image, and suggested fix budget
+   - View all issues in a grid layout
+   - See detailed issue information
+   - Update or delete issues (only for the logged-in user)
+
+3. **Community Contributions**
+   - Contribute to cleanup efforts with payment info
+   - View your contribution history
+   - Download PDF reports for personal contributions
+
+4. **Dynamic Home Page**
+   - Banner slider showcasing community cleaning and sustainability
+   - Issue categories: Garbage, Illegal Construction, Broken Public Property, Road Damage
+   - Recent complaints with “See Details” buttons
+   - Community stats: total users, issues resolved, and pending
+   - Volunteer Call-to-Action section
+
+5. **Additional Features**
+   - Responsive design for mobile, tablet, and desktop
+   - Toast and SweetAlert notifications for CRUD actions
+   - 404 Not Found page and loading spinner during API calls
+   - Optional: Dark/Light mode toggle
+
+---
+
+## 📂 Folder Structure
+
+**Client (React)**
+src/
+├─ Components/
+├─ Pages/
+├─ hooks/
+├─ assets/
+├─ App.jsx
+└─ index.js
+
+
+**Server (Node.js + Express)**
+
+routes/
+controllers/
+models/
+index.js
+
+##  How to Run Locally
+
+**1. Clone the repos**
+# Client
+git clone https://github.com/rafiabubbles/Community-Clean-Client.git
+cd Community-Clean-Client
+npm install
+
+# Server
+git clone https://github.com/rafiabubbles/Community-Clean-Server.git
+cd Community-Clean-Server
+npm install
+
+**2. Setup Environment Variables**
+
+**Client (.env)**
+
+
+REACT_APP_API_URL=http://localhost:5000
+
+**Server (.env)**
+
+PORT=5000
+MONGO_URI=your_mongo_connection_string
+
+**3. Run Locally**
+# Server
+npm run dev
+
+# Client
+npm start
+
+## Future Improvements
+
+* Dark/light mode toggle across all pages
+* Email verification and forgot password 
+
+##  Credits
+
+Developed by **Rafia**

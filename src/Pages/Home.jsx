@@ -11,6 +11,7 @@ import Lottie from "lottie-react";
 import Welcome from "../assets/welCome.json";
 
 
+
 const Home = () => {
     const [recentIssues, setRecentIssues] = useState([]);
     const [stats, setStats] = useState({
