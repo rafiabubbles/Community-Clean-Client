@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Lottie from "lottie-react";
-import Welcome from "../assets/welcome.json";
+import Welcome from "../assets/welcome.json" assert { type: "json" };
 
 
 
