@@ -57,7 +57,7 @@ const Login = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4 pt-20 pb-20">
+        <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4 py-10 sm:py-20">
             <form
                 onSubmit={handleSubmit}
                 className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md space-y-6"
@@ -72,7 +72,7 @@ const Login = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full border border-gray-300 p-3 rounded-xl bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
+                    className="w-full border border-gray-300 sm:p-4 p-3 rounded-xl bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
                 />
 
                 <input
@@ -81,7 +81,7 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="w-full border border-gray-300 p-3 rounded-xl bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
+                    className="w-full border border-gray-300 sm:p-4 p-3 rounded-xl bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
                 />
 
                 <p className="text-right text-sm mt-2">
@@ -96,7 +96,7 @@ const Login = () => {
                 <button
                     type="submit"
 
-                    className="w-full bg-cyan-500 py-3 rounded-xl font-semibold text-white shadow-md hover:bg-cyan-600 transition"
+                    className="w-full bg-cyan-500 py-3 sm:p-4 rounded-xl font-semibold text-white shadow-md hover:bg-cyan-600 transition"
                 >
                     Login
                 </button>

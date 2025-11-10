@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -59,6 +58,16 @@ const RecentComplaints = () => {
                         </div>
                     </div>
                 ))}
+            </div>
+
+            {/* See All Issues Button */}
+            <div className="mt-8 text-center">
+                <Link
+                    to="/all-issues"
+                    className="inline-block bg-linear-to-r from-[#574bc7] to-[#8eb4fa] text-white font-semibold py-3 px-8 rounded-xl shadow-lg hover:bg-blue-700 transition duration-300"
+                >
+                    See All Issues
+                </Link>
             </div>
         </div>
     );

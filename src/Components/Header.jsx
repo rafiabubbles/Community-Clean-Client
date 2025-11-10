@@ -44,7 +44,7 @@ const Header = () => {
                         {!user ? (
                             <>
                                 <NavLink to="/" className="hover:text-cyan-400">Home</NavLink>
-                                <NavLink to="/issues" className="hover:text-cyan-400">Issues</NavLink>
+                                <NavLink to="/all-issues" className="hover:text-cyan-400">All Issuess</NavLink>
                                 <NavLink
                                     to="/login"
                                     className="hover:text-cyan-400 border border-sky-400 px-3 py-1 rounded transition"
@@ -114,7 +114,7 @@ const Header = () => {
                     {!user ? (
                         <>
                             <Link to="/" onClick={closeAll} className="block px-3 py-2 rounded-md hover:bg-gray-100 hover:text-black">Home</Link>
-                            <Link to="/all-issues" onClick={closeAll} className="block px-3 py-2 rounded-md hover:bg-gray-100 hover:text-black">Issues</Link>
+                            <Link to="/all-issues" onClick={closeAll} className="block px-3 py-2 rounded-md hover:bg-gray-100 hover:text-black">All Issues</Link>
                             <Link to="/login" onClick={closeAll} className="block px-3 py-2 rounded-md hover:bg-gray-100 hover:text-black">Login</Link>
                             <Link to="/register" onClick={closeAll} className="block px-3 py-2 rounded-md hover:bg-gray-100 hover:text-black">Register</Link>
                         </>

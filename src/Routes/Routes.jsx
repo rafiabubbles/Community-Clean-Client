@@ -50,7 +50,7 @@ export const router = createBrowserRouter([{
         },
         {
             path: "/all-issues",
-            element: <PrivateRoute><AllIssue /></PrivateRoute>,
+            element: <AllIssue />,
         },
         {
             path: "/my-issues",
