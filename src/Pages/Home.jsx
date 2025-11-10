@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import BannerSlider from "../Components/BannerSlider";
 import CategoryCard from "../Components/CategoryCard";
@@ -8,9 +7,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Lottie from "lottie-react";
-import Welcome from "../assets/welcome.json" assert { type: "json" };
-
-
 
 const Home = () => {
     const [recentIssues, setRecentIssues] = useState([]);
@@ -19,11 +15,15 @@ const Home = () => {
         resolved: 750,
         pending: 320,
     });
+    const [welcomeData, setWelcomeData] = useState(null);
 
     useEffect(() => {
+        // Fetch recent issues
         const fetchIssues = async () => {
             try {
-                const res = await axios.get("https://community-clean-server-rep.vercel.app/api/issues?limit=6&sort=-date");
+                const res = await axios.get(
+                    "https://community-clean-server-rep.vercel.app/api/issues?limit=6&sort=-date"
+                );
                 setRecentIssues(Array.isArray(res.data) ? res.data : []);
             } catch (err) {
                 console.error("Error fetching issues:", err);
@@ -32,9 +32,12 @@ const Home = () => {
             }
         };
 
+        // Fetch stats
         const fetchStats = async () => {
             try {
-                const res = await axios.get("https://community-clean-server-rep.vercel.app/api/stats");
+                const res = await axios.get(
+                    "https://community-clean-server-rep.vercel.app/api/stats"
+                );
                 if (res.data) setStats(res.data);
             } catch (err) {
                 console.error("Error fetching stats:", err);
@@ -42,17 +45,33 @@ const Home = () => {
             }
         };
 
+        // Fetch welcome.json from public folder
+        const fetchWelcomeJSON = async () => {
+            try {
+                const res = await fetch("/welcome.json"); // file now in public folder
+                const data = await res.json();
+                setWelcomeData(data);
+            } catch (err) {
+                console.error("Failed to load welcome animation JSON:", err);
+            }
+        };
+
         fetchIssues();
         fetchStats();
+        fetchWelcomeJSON();
     }, []);
 
     return (
-
         <div className="bg-white min-h-screen">
             <div className="flex flex-col items-center justify-center h-screen bg-blue-50">
-                <h1 className="text-3xl font-bold mb-6 text-sky-600">Welcome to Our Portal</h1>
-                <Lottie animationData={Welcome} loop={true} className="w-80 h-80" />
+                <h1 className="text-3xl font-bold mb-6 text-sky-600">
+                    Welcome to Our Portal
+                </h1>
+                {welcomeData && (
+                    <Lottie animationData={welcomeData} loop={true} className="w-80 h-80" />
+                )}
             </div>
+
             {/* Banner Section */}
             <BannerSlider />
 
@@ -72,11 +91,12 @@ const Home = () => {
             </section>
 
             {/* Volunteer Call-to-Action */}
-            <section className=" bg-linear-to-r from-cyan-500 to-blue-500 py-16">
+            <section className="bg-linear-to-r from-cyan-500 to-blue-500 py-16">
                 <div className="max-w-7xl mx-auto px-4 md:px-10 text-center text-white">
                     <h2 className="text-4xl font-extrabold mb-4">Join Our Clean Drive!</h2>
                     <p className="mb-6 text-lg">
-                        Be a part of the community effort to keep our surroundings clean and sustainable.
+                        Be a part of the community effort to keep our surroundings clean and
+                        sustainable.
                     </p>
                     <Link
                         to="/volunteer"
