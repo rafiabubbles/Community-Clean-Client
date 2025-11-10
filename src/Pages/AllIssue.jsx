@@ -84,7 +84,7 @@ const AllIssues = () => {
                                 <p className="font-semibold mt-1">Budget: ${issue.amount}</p>
                                 <Link
                                     to={`/issue/${issue._id}`}
-                                    className="mt-auto btn btn-primary w-full text-center bg-gradient-to-r from-[#574bc7] to-[#8eb4fa] text-white font-extrabold py-3 px-6 rounded-xl shadow-[0_0_15px_rgba(138,43,226,0.6)] hover:shadow-[0_0_20px_rgba(255,0,255,0.8)] transition duration-300 ease-in-out"
+                                    className="mt-auto btn btn-primary w-full text-center  bg-linear-to-r from-[#574bc7] to-[#8eb4fa] text-white font-extrabold py-3 px-6 rounded-xl shadow-[0_0_15px_rgba(138,43,226,0.6)] hover:shadow-[0_0_20px_rgba(255,0,255,0.8)] transition duration-300 ease-in-out"
                                 >
                                     See Details
                                 </Link>

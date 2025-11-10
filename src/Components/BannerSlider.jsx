@@ -9,7 +9,7 @@ const DetailButton = ({ text, onClick }) => (
         className="
       flex items-center justify-center space-x-2
       py-3 px-6 rounded-xl font-extrabold text-white text-lg
-      bg-gradient-to-r from-[#574bc7] to-[#8eb4fa]
+       bg-linear-to-r from-[#574bc7] to-[#8eb4fa]
       border border-[#a020f0]
       shadow-[0_0_15px_rgba(138,43,226,0.6)]
       transition duration-300 ease-in-out
@@ -164,7 +164,7 @@ const BannerSlider = () => {
                                     key={index}
                                     onClick={() => setCurrentIndex(index)}
                                     className={`h-3 w-3 rounded-full transition-all duration-300 ${index === currentIndex
-                                        ? "w-6 bg-gradient-to-r from-[#7598f8] to-[#8bc0fd] shadow-md shadow-[#8a2be2]/80"
+                                        ? "w-6 bg-linear-to-r from-[#7598f8] to-[#8bc0fd] shadow-md shadow-[#8a2be2]/80"
                                         : "bg-white/50 hover:bg-white/80"
                                         }`}
                                     whileHover={{ scale: 1.2 }}

@@ -103,10 +103,10 @@ const Contribution = () => {
                                 key={idx}
                                 className="hover:bg-gray-50 text-gray-800 transition-colors"
                             >
-                                <td className="px-3 sm:px-4 py-2 border break-words">
+                                <td className="px-3 sm:px-4 py-2 border wrap-break-words">
                                     {c.issueTitle || "N/A"}
                                 </td>
-                                <td className="px-3 sm:px-4 py-2 border break-words">
+                                <td className="px-3 sm:px-4 py-2 border wrap-break-words">
                                     {c.category || "N/A"}
                                 </td>
                                 <td className="px-3 sm:px-4 py-2 border">

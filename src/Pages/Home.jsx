@@ -72,7 +72,7 @@ const Home = () => {
             </section>
 
             {/* Volunteer Call-to-Action */}
-            <section className="bg-gradient-to-r from-cyan-500 to-blue-500 py-16">
+            <section className="bg-linear-to-r from-cyan-500 to-blue-500 py-16">
                 <div className="max-w-7xl mx-auto px-4 md:px-10 text-center text-white">
                     <h2 className="text-4xl font-extrabold mb-4">Join Our Clean Drive!</h2>
                     <p className="mb-6 text-lg">
