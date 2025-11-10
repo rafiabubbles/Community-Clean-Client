@@ -11,10 +11,13 @@ const RecentComplaints = () => {
     useEffect(() => {
         const fetchIssues = async () => {
             try {
-                // Fetch all issues and then slice last 6
                 const res = await axios.get("http://localhost:5000/api/add-issue");
-                const lastSix = res.data.slice(-6).reverse(); // get latest 6
-                setIssues(lastSix);
+
+                // 💡 The Edit: Take only the first 6 elements
+                // Assuming the API returns Newest Issues FIRST (as suggested by AllIssues behavior)
+                const recentSix = res.data.slice(0, 6);
+
+                setIssues(recentSix);
             } catch (err) {
                 console.error("Failed to load issues:", err);
             } finally {

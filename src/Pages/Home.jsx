@@ -7,7 +7,8 @@ import StatsSection from "../Components/StateSection";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
-import Loader from "../Components/Loader";
+import Lottie from "lottie-react";
+import Welcome from "../assets/welcome.json";
 
 const Home = () => {
     const [recentIssues, setRecentIssues] = useState([]);
@@ -44,7 +45,12 @@ const Home = () => {
     }, []);
 
     return (
+
         <div className="bg-white min-h-screen">
+            <div className="flex flex-col items-center justify-center h-screen bg-blue-50">
+                <h1 className="text-3xl font-bold mb-6 text-sky-600">Welcome to Our Portal</h1>
+                <Lottie animationData={Welcome} loop={true} className="w-80 h-80" />
+            </div>
             {/* Banner Section */}
             <BannerSlider />
 
