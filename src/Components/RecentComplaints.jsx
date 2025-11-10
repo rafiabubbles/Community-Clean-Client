@@ -11,7 +11,7 @@ const RecentComplaints = () => {
     useEffect(() => {
         const fetchIssues = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/add-issue");
+                const res = await axios.get("https://community-clean-server-rep.vercel.app/api/add-issue");
 
                 // 💡 The Edit: Take only the first 6 elements
                 // Assuming the API returns Newest Issues FIRST (as suggested by AllIssues behavior)

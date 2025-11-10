@@ -17,7 +17,7 @@ const AllIssues = () => {
         const fetchIssues = async () => {
             try {
                 // Using /api/add-issue endpoint to fetch all issues, which is correct based on our previous discussion
-                const res = await axios.get("http://localhost:5000/api/add-issue");
+                const res = await axios.get("https://community-clean-server-rep.vercel.app/api/add-issue");
                 setIssues(res.data);
             } catch (err) {
                 toast.error("Failed to load issues!");

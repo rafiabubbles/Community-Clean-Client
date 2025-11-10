@@ -33,7 +33,7 @@ const BannerSlider = () => {
     useEffect(() => {
         const fetchBanners = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/banners");
+                const res = await axios.get("https://community-clean-server-rep.vercel.app/api/banners");
                 setImages(res.data);
             } catch (error) {
                 console.error("Error fetching banners:", error);

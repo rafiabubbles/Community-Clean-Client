@@ -20,12 +20,12 @@ const IssueDetail = () => {
 
     useEffect(() => {
         // Fetch issue details
-        axios.get(`http://localhost:5000/api/add-issue/${id}`)
+        axios.get(`https://community-clean-server-rep.vercel.app/api/add-issue/${id}`)
             .then(res => setIssue(res.data))
             .catch(err => console.error(err));
 
         // Fetch contributions for this issue
-        axios.get(`http://localhost:5000/api/contributions?issueId=${id}`)
+        axios.get(`https://community-clean-server-rep.vercel.app/api/contributions?issueId=${id}`)
             .then(res => setContributors(res.data))
             .catch(err => console.error(err));
     }, [id]);
@@ -43,7 +43,7 @@ const IssueDetail = () => {
                 email: user.email,
                 date: new Date()
             };
-            const res = await axios.post("http://localhost:5000/api/contributions", data);
+            const res = await axios.post("https://community-clean-server-rep.vercel.app/api/contributions", data);
             toast.success("Contribution submitted!");
             setShowModal(false);
             setContributors(prev => [...prev, data]); // update UI

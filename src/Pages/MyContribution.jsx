@@ -15,7 +15,7 @@ const Contribution = () => {
         const fetchContributions = async () => {
             try {
                 const res = await axios.get(
-                    `http://localhost:5000/api/contributions?email=${user?.email}`
+                    `https://community-clean-server-rep.vercel.app/api/contributions?email=${user?.email}`
                 );
                 setContributions(res.data || []);
             } catch (err) {

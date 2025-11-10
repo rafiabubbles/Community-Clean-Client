@@ -24,7 +24,7 @@ const MyIssues = () => {
     const fetchMyIssues = async () => {
         setLoading(true);
         try {
-            const res = await axios.get("http://localhost:5000/api/issues", {
+            const res = await axios.get("https://community-clean-server-rep.vercel.app/api/issues", {
                 params: { email: user.email }, // only this user's issues
             });
             setIssues(res.data);
@@ -38,7 +38,7 @@ const MyIssues = () => {
     useEffect(() => {
         const fetchMyIssues = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/add-issue", {
+                const res = await axios.get("https://community-clean-server-rep.vercel.app/api/add-issue", {
                     params: { email: user.email }, // fetch only user's issues
                 });
                 // filter manually on frontend if backend doesn't support email param
@@ -76,7 +76,7 @@ const MyIssues = () => {
         e.preventDefault();
         try {
             await axios.put(
-                `http://localhost:5000/api/issues/${selectedIssue._id}`,
+                `https://community-clean-server-rep.vercel.app/api/issues/${selectedIssue._id}`,
                 updateData
             );
             toast.success("Issue updated successfully!");
@@ -97,7 +97,7 @@ const MyIssues = () => {
     // delete issue
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:5000/api/issues/${selectedIssue._id}`);
+            await axios.delete(`https://community-clean-server-rep.vercel.app/api/issues/${selectedIssue._id}`);
             toast.success("Issue deleted successfully!");
             // refresh issues
             fetchMyIssues();

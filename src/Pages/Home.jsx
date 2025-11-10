@@ -21,7 +21,7 @@ const Home = () => {
     useEffect(() => {
         const fetchIssues = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/issues?limit=6&sort=-date");
+                const res = await axios.get("https://community-clean-server-rep.vercel.app/api/issues?limit=6&sort=-date");
                 setRecentIssues(Array.isArray(res.data) ? res.data : []);
             } catch (err) {
                 console.error("Error fetching issues:", err);
@@ -32,7 +32,7 @@ const Home = () => {
 
         const fetchStats = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/stats");
+                const res = await axios.get("https://community-clean-server-rep.vercel.app/api/stats");
                 if (res.data) setStats(res.data);
             } catch (err) {
                 console.error("Error fetching stats:", err);

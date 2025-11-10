@@ -21,7 +21,7 @@ const AddIssue = () => {
             data.status = "ongoing";
             data.date = new Date();
 
-            await axios.post("http://localhost:5000/api/add-issue", data);
+            await axios.post("https://community-clean-server-rep.vercel.app/api/add-issue", data);
             toast.success("Issue added successfully!");
             reset();
 
@@ -35,7 +35,7 @@ const AddIssue = () => {
     };
     if (loading) return <Loader />;
     return (
-        <div className="max-w-xl mx-auto p-6 bg-base-200 rounded-2xl shadow mt-8">
+        <div className="max-w-xl mx-auto p-6 bg-base-200 rounded-2xl shadow mt-8 mb-20">
             <h2 className="text-2xl font-semibold mb-6 text-center">Report an Issue</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 {/* Issue Title */}

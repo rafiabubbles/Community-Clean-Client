@@ -1,4 +1,4 @@
-// src/Components/PrivateRoute.jsx
+
 import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
